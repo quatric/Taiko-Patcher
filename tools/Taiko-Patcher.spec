@@ -14,6 +14,7 @@ ICON = os.path.join(ROOT, 'assets', 'icon.icns' if sys.platform == 'darwin' else
 a = Analysis([os.path.join(ROOT, 'taiko_patcher', 'gui.py')], pathex=[ROOT],
              binaries=dnd_binaries + wit_bins,
              datas=dnd_datas + [(os.path.join(ROOT, 'assets', 'icon.png'), 'assets'),
+                                (os.path.join(ROOT, 'assets', 'logo.png'), 'assets'),
                                 (os.path.join(ROOT, 'taiko_patcher', 'data'), 'taiko_patcher/data')],
              hiddenimports=dnd_hidden)
 pyz = PYZ(a.pure)

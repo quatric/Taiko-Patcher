@@ -85,9 +85,9 @@ class App(BASE):
         self.msgq = queue.Queue()
         self.busy = False
 
-        try:                                             # small copy of the icon above the drop zone
-            img = tk.PhotoImage(file=asset("icon.png"))
-            self.logo = img.subsample(max(1, img.width() // 72))
+        try:                                             # the game logo above the drop zone
+            img = tk.PhotoImage(file=asset("logo.png"))
+            self.logo = img.subsample(max(1, round(img.width() / 190)))
             tk.Label(self, image=self.logo).pack(pady=(10, 0))
         except Exception:
             pass
