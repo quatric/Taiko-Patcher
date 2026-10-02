@@ -1,6 +1,7 @@
 """Input handling: bare DOL, extracted game folder, or a disc image (ISO/WBFS/...), the latter via Wiimms ISO Tool."""
 import os
 import shutil
+import sys
 import subprocess
 import tempfile
 
@@ -11,7 +12,9 @@ IMAGE_EXTS = {".iso", ".wbfs", ".wdf", ".wia", ".ciso", ".gcz", ".wdf1", ".wdf2"
 
 
 def find_wit():
-    cand = [os.environ.get("WIT"), shutil.which("wit"), os.path.expanduser("~/.local/bin/wit"), "/usr/local/bin/wit",
+    bundled = [os.path.join(b, "wit") for b in (getattr(sys, "_MEIPASS", None),
+               os.path.dirname(sys.executable) if getattr(sys, "frozen", False) else None) if b]
+    cand = bundled + [os.environ.get("WIT"), shutil.which("wit"), os.path.expanduser("~/.local/bin/wit"), "/usr/local/bin/wit",
             "/opt/homebrew/bin/wit"]
     for c in cand:
         if c and os.path.exists(c):
