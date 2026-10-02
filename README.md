@@ -1,6 +1,10 @@
 # Taiko-Patcher
 
-One patcher for the five Taiko no Tatsujin Wii games (Japan):
+One patcher for the five Taiko no Tatsujin Wii games (Japan).
+
+![Taiko no Tatsujin Wii](assets/logo.png)
+
+
 
 | key | game | ID6 |
 |---|---|---|
