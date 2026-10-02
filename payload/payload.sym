@@ -1,0 +1,11 @@
+TP_BASE 80003200
+tp_call_probe 800032e0
+tp_cfg 800036b0
+tp_exit_hold_core 80003264
+tp_exit_hold_tk 80003230
+tp_hold_hook_core 80003234
+tp_hold_hook_tk 80003200
+tp_poll_ch 80003320
+tp_probe_wrap 800032c0
+tp_state 800036e0
+tp_update_hook 80003268

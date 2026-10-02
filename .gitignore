@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.o
+*.elf
+.DS_Store
+tools/dist/
+tools/build/
