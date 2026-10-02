@@ -1,11 +1,11 @@
 import subprocess, sys, time, os, re, struct
 from gdbc import G
 
-U = os.environ.get('DOLPHIN_USER', os.path.expanduser('~/taiko-dolphin-user'))  # isolated Dolphin user dir with GCPadNew.ini (Pipe/0/pad1) and SIDevice0=6
+U = os.environ.get('DOLPHIN_USER', os.path.expanduser('~/taiko-dolphin-user'))
 
 
 def launch(image):
-    p = subprocess.Popen(['/Applications/Dolphin.app/Contents/MacOS/Dolphin', '-u', U, '-b', '-e', image],
+    p = subprocess.Popen(['/Applications/Dolphin.app/Contents/MacOS/Dolphin', '-u', U, '-b', *os.environ.get('DOLPHIN_EXTRA','').split(), '-e', image],
                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     port = None
     for _ in range(60):

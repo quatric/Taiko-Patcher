@@ -11,10 +11,12 @@ STATE = int(SYM['tp_state'], 16)
 NAMES = {1: 'Taiko no Tatsujin Wii (Japan)', 2: 'Taiko no Tatsujin Wii - Chou Goukaban (Japan)',
          3: 'Taiko no Tatsujin Wii - Dodoon to 2-daime! (Japan)', 4: 'Taiko no Tatsujin Wii - Ketteiban (Japan)',
          5: 'Taiko no Tatsujin Wii - Minna de Party 3-daime! (Japan)'}
-W = os.environ.get('TAIKO_WORK', os.path.expanduser('~/taiko-work'))  # holds taikoN.patched.dol and scratch images
+W = os.environ.get('TAIKO_WORK', os.path.expanduser('~/taiko-work'))
 ORIG = os.path.expanduser(f'~/Downloads/{NAMES[N]}.d')
 run = f'{W}/run{N}'
 img = f'{W}/taiko{N}.patched.wbfs'
+if '--gecko' in sys.argv:
+    img = ORIG[:-2] + '.wbfs'; sys.argv.append('--nobuild')
 if '--nobuild' not in sys.argv:
     shutil.rmtree(run, ignore_errors=True)
     os.makedirs(run + '/DATA')

@@ -54,6 +54,12 @@ tools/build_gui.sh                    # standalone app via PyInstaller -> tools/
 Disc images are replaced in place and the original is kept as `<name>.bak`, like ACCF-Patcher. Drag-and-drop needs
 `pip install tkinterdnd2` (otherwise click to browse). The app icon is made from `assets/logo.png` by `tools/make_icon.py`.
 
+### Gecko codes and Riivolution
+
+No patching needed: `codes/<ID6>.ini` (Dolphin) / `.txt` (any Gecko loader) and `riivolution/<ID6>.xml` apply the same
+patch at runtime. They are generated from the same plan as the DOL patch (`python3 tools/gen_codes.py`, checked in CI).
+Don't combine them with a DOL that is already patched.
+
 Options: `--no-gc`, `--no-classic`, `--no-stick`, `--no-clap`, `--game taikoN`.
 Only Python 3.9+ (stdlib) is needed to run it; [wit](https://wit.wiimm.de/) only for disc images.
 A modified disc needs a way to run unsigned/altered discs (Dolphin, a softmodded Wii with a USB loader).

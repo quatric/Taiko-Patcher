@@ -24,6 +24,8 @@ jobs:
         run: pip install pillow
       - name: Consistency checks
         run: python3 tools/check.py
+      - name: Generated Gecko/Riivolution files are up to date
+        run: python3 tools/gen_codes.py --check
       - name: Unit tests
         run: python3 -m unittest discover tests
       - name: CLI smoke test
